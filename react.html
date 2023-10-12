@@ -4,7 +4,7 @@
 <head>
 
 
-    <title>React Part</title>
+    <title>Web Apps Assignment React File</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -17,12 +17,12 @@
 
 <body>
 
-    <h3 style="background-color:rgb(0, 0, 255);">Amit Harish Doddamani speed check</h3>
-    <div id="target" style="background-color:rgb(181, 238, 101); background-position:0cqmin; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">Your time is</div>
-    <div id="counter" style="background-color:rgb(200, 255, 0); background-position:0cqmin; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">Count Number</div>
-    <div id="countdown" style="background-color:rgb(231, 140, 140);"></div>
-    <button id="buttonStartTimer" style="background-color: rgb(215, 231, 231);background-position:0cqmin;">Start Timer</button>
-    <button id="buttonReactTime" style="background-color: rgb(25, 115, 118); background-position:0cqmin;">React</button>
+    <h2 style="background-color:rgb(204, 204, 225); border: 1px solid rgb(90, 125, 11); box-shadow: 0 0 10px rgba(227, 132, 132, 0.2);">Amit Harish Doddamani speed check</h2>
+    <div id="target" style="background-color:rgb(233, 180, 142); padding: 3px; background-position:0cqmin; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">Your time is</div>
+    <div id="counter" style="background-color:rgb(183, 220, 236); padding: 3px; background-position:0cqmin; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">Count Number</div>
+    <div id="countdown" style="background-color:rgb(231, 140, 140); padding: 3px;"></div>
+    <button id="buttonStartTimer" class="btn-warning" style="background-color: rgb(215, 231, 231);background-position:0cqmin;">Start Timer</button>
+    <button id="buttonReactTime" class="btn-danger" style="background-color: rgb(25, 115, 118); background-position:0cqmin;">React</button>
 
 
     <script>
@@ -30,15 +30,15 @@
 
 
         function recordTime() {
-            reactTime = Date.now();
+          reactTime = Date.now();
             console.log(reactTime);
         }
 
-        document.getElementById("reactButton").onclick = recordTime
+        document.getElementById("buttonReactTime").onclick = recordTime
 
         function startTime() {
 
-            for (let i = 0; i < 9; i++) {
+            for (let i = 0; i <= 8; i++) {
                 setTimeout(function () {
                     document.getElementById("countdown").innerHTML = i;
 
@@ -57,7 +57,7 @@
             }, 8000);
         }
 
-        document.getElementById("startButton").onclick = startTime;
+        document.getElementById("buttonStartTimer").onclick = startTime;
         
 
 
