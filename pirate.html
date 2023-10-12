@@ -133,37 +133,60 @@ var ids = ["1111", "1112", "1113", "1114", "1115",
             "5551", "5552", "5553", "5554", "5555"]
 
             
-        var countOfCheck = 0;
-        var penaltyValue = 0;
-        var lastestCheck = 0;
-        var treasureFound = 5;
-        var trapped = 18;
-        var gameCompleted = false;
+        var checkCount = 0;
+        var penalty = 0;
+        var lastCheck = 0;
+        var treasureLocation = 5;
+        var trapLocation = 18;
+        var gameOver = false;
 
 
 function check(position) {
-            if (gameCompleted != true) {
-                if (position == treasureFound) {
+            if (gameOver != true) {
+                if (position == treasureLocation) {
                     document.getElementById(ids[position]).setAttribute("src", "treasureMap.JPG");
-                    gameCompleted = true;
-                    penaltyValue = penaltyValue - 3;
+                    gameOver = true;
+                    penalty = penalty - 3;
                 }
-                else if (position == trapped) {
+                else if (position == trapLocation) {
                     document.getElementById(ids[position]).setAttribute("src", "trap.JPG");
-                    gameCompleted = true;
-                    penaltyValue = penaltyValue + 4;
+                    gameOver = true;
+                    penalty = penalty + 4;
                 }
                 else {
                     document.getElementById(ids[position]).setAttribute("src", "pirate.JPG");
-                    penaltyValue = penaltyValue + 1;
+                    penalty = penalty + 1;
                 }
-                countOfCheck++;
-                document.getElementById("locations").innerHTML = "Number of locations checked is " + countOfCheck;
-                document.getElementById("penalty").innerHTML = "Penalty is " + penaltyValue + ".";
+                checkCount++;
+                document.getElementById("locations").innerHTML = "Number of locations checked is " + checkCount;
+                document.getElementById("penalty").innerHTML = "Penalty is " + penalty + ".";
                 lastCheck = position;
             }
         }
 
+        function help() {
+            let endRow = parseInt(lastCheck / 5);
+            let tFoundRow = parseInt(treasureFound / 5);
+            let result = " ";
+            let endColumn = lastCheck % 5;
+            let tFoundColumn = treasureFound % 5;
+
+            if (Math.abs(endRow - tFoundRow) <= 1 && Math.abs(endColumn - tFoundColumn) <= 1) {
+                result = "Can smell it";
+            }
+            else if (Math.abs(endRow - tFoundRow) <= 2 && Math.abs(endColumn - tFoundColumn) <= 2) {
+                result = "Close Matie";
+            }
+            else {
+                result = "Step Faster";
+            }
+            penaltyValue = penaltyValue + 2;
+            document.getElementById("penalty").innerHTML = "Penalty is " + penaltyValue + ".";
+            document.getElementById("help").innerHTML = result;
+        }
+
+
+    
 </script>
 
 </body>
