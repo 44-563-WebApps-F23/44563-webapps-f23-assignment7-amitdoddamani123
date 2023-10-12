@@ -5,6 +5,6 @@ An assignment on java script modifying the DOM and using anonymous callback func
 
 hosted at:[pirate.html](https://44-563-webapps-f23.github.io/44563-webapps-f23-assignment7-amitdoddamani123/pirate.html)
 
-hosted at:[reat.html](https://44-563-webapps-f23.github.io/44563-webapps-f23-assignment7-amitdoddamani123/react.html)
+hosted at:[react.html](https://44-563-webapps-f23.github.io/44563-webapps-f23-assignment7-amitdoddamani123/react.html)
 
 hosted at:[merger.html](https://44-563-webapps-f23.github.io/44563-webapps-f23-assignment7-amitdoddamani123/merger.html)
