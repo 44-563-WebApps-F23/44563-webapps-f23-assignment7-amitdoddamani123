@@ -1,50 +1,81 @@
 <!DOCTYPE html>
-<html> <head> <style>
-    .flex-container {
-      display: flex;  flex-direction:row;
-      background-color: red;
-  }
-
-.flex-container > div {  /*div children of the flex container*/
-  background-color: #f1f1f1; 
-  margin: 10px;  padding: 20px;  font-size: 30px;
-}
-
-/* Responsive layout */
-@media (max-width: 600px) { 
-	 .flex-container{
-		 flex-direction:column;
-		 background-color: green;
-	  }
-	}
-</style></head>
-
-
-
-<body>
+<html>
+	<head>
+		<title>Web Application Assignment Merge File</title>
+		<style>
+			.flex-container {
+				display: flex;
+				flex-direction: row;
+				padding-top: 3px;
+				background-color: rgba(196, 58, 166, 0.201);
+			}
+	
+			.flex-container>div {
+				background-color: #cec659;
+				margin: 10px;
+				padding: 20px;	
+				font-size: 30px;
+			}
+	
+			@media (max-width: 600px) {
+				.flex-container {
+					flex-direction: column;
+					background-color: rgb(92, 181, 230);
+				}
+			}
+		</style>
+	</head>
+	
+	<body>
+		<h1 style="background-color:rgb(219, 233, 157); border: 1px solid rgb(205, 180, 56); box-shadow: 0 0 10px rgba(227, 132, 132, 0.2);">Amit Harish Doddamani builds a merger</h1>
+		<input type="text" class="form-control" id="inputString">
+		<br>
+		<br>
 		<div class="flex-container" id="target">
-		  <div>row item 1</div>   
-		  <div>row item 2</div>  
-		  <div>row item 3</div>  
+			<div class="merger" style="background-color: rgba(148, 153, 211, 0.368);">row item 1</div>
+			<div class="merger" style="background-color:rgba(148, 153, 211, 0.368);">row item 2</div>
+			<div class="merger" style="background-color:rgba(148, 153, 211, 0.368);">row item 3</div>
 		</div>
 	
-	<p> Press the button to create an new element of type div and then add it to the container.
+		<p> Press the button to create an new element of type div and then add it to the container.
 		</p>
-		<button onclick="makeNewDiv()">Add one</button>
+		<button onclick="addEnd()" style="background-color:rgb(142, 240, 222);">Add end</button>
+		<button onclick="addFront()" style="background-color:rgb(142, 240, 222);">Add Front</button>
+		<button onclick="remove()" style="background-color: rgb(142, 240, 222);">Remove</button>
 	
 	
-</body>
-<script>
-	function makeNewDiv(){
-		/* make the div and its text */
-		let element = document.createElement("div")
-		element.innerHTML = "an item after 3"
-		element.style.color = "orange"
-
-		/* add it to the container */
-		let container = document.getElementById('target')
-		container.appendChild(element)
-		
-	}
-</script>
-</html>	
+	</body>
+	<script>
+	
+		function addEnd() {
+			let element = document.createElement("div")
+			element.innerHTML = document.getElementById("inputString").value
+			element.style.color = "green"
+			element.className = "merger"
+	
+			let container = document.getElementById('target')
+			container.appendChild(element)
+	
+		}
+		function remove() {
+			let queueItems = document.getElementsByClassName("merger")
+			let length_element = queueItems.length
+			if (length_element > 0) {
+				queueItems[length_element - 1].remove()
+			}
+		}
+		function addFront() {
+			let element = document.createElement("div");
+			element.innerHTML = document.getElementById("inputString").value;
+			element.style.color = "green";
+			element.className = "merger";
+	
+			let container = document.getElementById("target");
+			container.insertBefore(element, container.firstChild);
+			container.insertBefore(element, container.firstChild);
+			document.getElementById("newGame").onclick = newGame;
+			
+		}
+	
+	</script>
+	</html>	
