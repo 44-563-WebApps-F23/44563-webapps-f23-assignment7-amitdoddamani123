@@ -18,8 +18,9 @@
   <p style="padding: 3px;  border: 1px solid rgb(177, 214, 91); box-shadow: 0 0 10px rgba(227, 132, 132, 0.2); color:rgb(240, 140, 18)">Click on the locations to search for treasure, beware the traps</p>
   <p id="locations" style="padding: 3px; background-position:0cqmin; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">Number of locations checked is zero</p>
   <p id="penalty" style="color: rgb(169, 232, 157); background-color: rgb(104, 116, 226); padding: 3px;  border: 1px solid rgb(128, 163, 240); box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">Penalty is zero.</p>
-  <p style="font-optical-sizing: 12px; color: blueviolet;">Click for help</p>
+  <p style="font-optical-sizing: 12px; color: rgb(201, 161, 238);" onclick="help()">Click for help</p></div>
   <p id="help" style="color: rgb(197, 156, 54); background-position:0cqmin; margin: 12px; padding: 3px;  border: 1px solid rgb(128, 240, 214);"><b>Help report</b></p>
+  <button type="button" class="button" onclick="newGame()"><b>New Game</b></button>
 </div>
 
 <div class="container">
@@ -164,7 +165,7 @@ function check(position) {
             }
         }
 
-        function help() {
+function help() {
             let endRow = parseInt(lastCheck / 5);
             let tFoundRow = parseInt(treasureFound / 5);
             let result = " ";
@@ -185,7 +186,36 @@ function check(position) {
             document.getElementById("help").innerHTML = result;
         }
 
+function reset() {
+            treasureLocation = Math.floor(Math.random() * 25);
+            trapLocation = Math.floor(Math.random() * 25);
+            checkCount = 0
+            penaltyValue = 0
+            document.getElementById("locations").innerHTML = "Number of locations checked is zero";
+            document.getElementById("penalty").innerHTML = "Penalty is zero";
+            for (let i = 0; i < 25; i++) {
+                document.getElementById(ids[i]).src = "treasure.JPG";
+            }
+        }
+function getRandomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
 
+        trapLocation = getRandomNumber(0, 24);
+        treasureLocation = getRandomNumber(0, 24);
+
+function newGame() {
+           
+            trapLocation = getRandomNumber(0, 24);
+            treasureLocation = getRandomNumber(0, 24);
+            locationsChecked = 0;
+            penaltyValue = 0;
+            document.getElementById("counter").innerHTML = "Count: 0";
+            document.getElementById("penalty").innerHTML = "Penalty: 0";
+            document.getElementById("target").innerHTML = "Your time";
+        }
+
+        document.getElementById("newGame").onclick = newGame;
     
 </script>
 
